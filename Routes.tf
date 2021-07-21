@@ -8,6 +8,17 @@ resource "aws_route_table" "publicRTwebProd" {
 
   tags = {
     "Name" = "publicRTprod"
+    "Terraform" = "True"
+  }
+}
+
+resource "aws_route_table_association" "name" {
+  subnet_id = aws_subnet.pubWebProd.id
+  route_table_id = aws_route_table.publicRTwebProd.id
+
+  tags = {
+    "Name" = "publicRTprod"
+    "Terraform" = "True"
   }
 }
 
