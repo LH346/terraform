@@ -12,14 +12,14 @@ resource "aws_route_table" "publicRTwebProd" {
   }
 }
 
-resource "aws_route_table_association" "name" {
-  subnet_id = aws_subnet.pubWebProd.id
+resource "aws_route_table_association" "pub01" {
+  subnet_id      = aws_subnet.pubWebProd01.id
   route_table_id = aws_route_table.publicRTwebProd.id
+}
 
-  tags = {
-    "Name" = "publicRTprod"
-    "Terraform" = "True"
-  }
+resource "aws_route_table_association" "pub02" {
+  subnet_id      = aws_subnet.pubWebProd02.ids
+  route_table_id = aws_route_table.publicRTwebProd.id
 }
 
 resource "aws_route_table" "privateRTwebProd" {
