@@ -1,6 +1,5 @@
 
 
-
 resource "aws_vpc" "WebProd" {
 
   cidr_block = "10.0.0.0/16"

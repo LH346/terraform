@@ -18,7 +18,7 @@ resource "aws_route_table_association" "pub01" {
 }
 
 resource "aws_route_table_association" "pub02" {
-  subnet_id      = aws_subnet.pubWebProd02.ids
+  subnet_id      = aws_subnet.pubWebProd02.id
   route_table_id = aws_route_table.publicRTwebProd.id
 }
 
@@ -30,5 +30,5 @@ resource "aws_route_table" "privateRTwebProd" {
     "Name" = "privateRTprod"
     "Terraform" = "True"
   }
-
+  
 }

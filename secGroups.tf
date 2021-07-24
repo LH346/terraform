@@ -20,7 +20,6 @@ resource "aws_security_group" "publicSubnet" {
   }
 
   
-
   egress {
     description = ""
     from_port = 0
