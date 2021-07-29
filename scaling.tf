@@ -18,7 +18,7 @@ resource "aws_lb_listener" "front_end" {
 }
 
 resource "aws_lb" "test" {
-  name               = "learn-terraform-exampsuckeeee"
+  name               = "titlealb"
   internal           = false
   load_balancer_type = "application"
   security_groups    = [aws_security_group.publicSubnet.id]
