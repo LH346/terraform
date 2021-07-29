@@ -70,9 +70,6 @@ resource "aws_eip" "natgwip01" {
   vpc              = true
 }
 
-/*resource "aws_eip" "natgwip02" {
-  vpc              = true
-} */
 
 resource "aws_nat_gateway" "nat01" {
   allocation_id = aws_eip.natgwip01.id
@@ -86,19 +83,6 @@ resource "aws_nat_gateway" "nat01" {
   ]
 }
 
-/*resource "aws_nat_gateway" "nat02" {
-  allocation_id = aws_eip.natgwip02.id
-  subnet_id = aws_subnet.pubWebProd02.id
-  tags = {
-    "Name" = "gw NAT"
-    "Terraform" = "True"
-  }
-  depends_on = [
-    aws_internet_gateway.natPublicWebProd, aws_subnet.pubWebProd01, aws_subnet.pubWebProd02
-  ]
-}
-*/
-
 resource "aws_internet_gateway" "natPublicWebProd" {
   vpc_id = aws_vpc.WebProd.id
 
@@ -109,15 +93,3 @@ resource "aws_internet_gateway" "natPublicWebProd" {
   
 }
 
-
-
- /* resource "aws_nat_gateway" "nat02" {
-  subnet_id = aws_subnet.pubWebProd02
-
-  tags = {
-    "Name" = "gw NAT"
-    "Terraform" = "True"
-  }
-
-}
-*/
